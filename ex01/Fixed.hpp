@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:07 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/13 16:43:14 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/13 17:02:23 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ public:
 	Fixed( void );		//constructor
 	~Fixed();			//deconstructor
 	Fixed(const Fixed & fix); //copy constructor
+	Fixed(const int convert);
+	Fixed(const float convert);
 	Fixed &operator=(const Fixed &fix);//overloaded operators (change name later)
 	
 	int		getRawBits(void)const;
 	void	setRawBits(int const raw);
+	float toFloat( void ) const;
+	int toInt( void ) const;
 };
 
 #endif
