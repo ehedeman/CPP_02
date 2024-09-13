@@ -6,9 +6,13 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:07 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/13 15:35:38 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:43:14 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_HPP
+
+# define FIXED_HPP
 
 #include <iostream>
 
@@ -29,3 +33,5 @@ public:
 	int		getRawBits(void)const;
 	void	setRawBits(int const raw);
 };
+
+#endif
