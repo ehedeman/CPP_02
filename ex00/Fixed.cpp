@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:04 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/13 15:37:11 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:40:49 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed & fix)
 {
 	this->value = fix.value;
+}
+
+Fixed &Fixed::operator=(const Fixed &fix) //this is confusing me so much
+{
+
 }
 
 int Fixed::getRawBits()const{return(this->value);}
