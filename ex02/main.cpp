@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:19 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/17 13:08:53 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:57:19 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int main()
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+//	std::cout << Fixed::min( a, b ) << std::endl;
 	return 0;
 }

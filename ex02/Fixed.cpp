@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:04 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/17 13:10:35 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:03:19 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,83 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &fixed_nbr)
 	return (os << fixed_nbr.toFloat());
 }
 
-std::ostream	&operator<<(std::ostream &os, Fixed const &fixed_nbr)
+float	Fixed::operator+(Fixed const &fix){return(this->toFloat() + fix.toFloat());}
+float	Fixed::operator-(Fixed const &fix){return(this->toFloat() - fix.toFloat());}
+float	Fixed::operator*(Fixed const &fix){return(this->toFloat() * fix.toFloat());}
+float	Fixed::operator/(Fixed const &fix){return(this->toFloat() / fix.toFloat());}
+
+bool	Fixed::operator<(Fixed const &fix){return(this->toFloat() < fix.toFloat());}
+bool	Fixed::operator>(Fixed const &fix){return(this->toFloat() > fix.toFloat());}
+bool	Fixed::operator>=(Fixed const &fix){return(this->toFloat() >= fix.toFloat());}
+bool	Fixed::operator<=(Fixed const &fix){return(this->toFloat() <= fix.toFloat());}
+bool	Fixed::operator==(Fixed const &fix){return(this->toFloat() == fix.toFloat());}
+bool	Fixed::operator!=(Fixed const &fix){return(this->toFloat() != fix.toFloat());}
+
+Fixed	Fixed::operator++(int)
 {
-	return (os << fixed_nbr.toFloat());
+	Fixed tmp;
+	
+	tmp = *this;
+	++this->value;
+	return(tmp);
 }
 
+Fixed	Fixed::operator--(int)
+{
+	Fixed tmp;
+	
+	tmp = *this;
+	--this->value;
+	return(tmp);
+}
+
+Fixed	&Fixed::operator++()
+{
+	this->value++;
+	return(*this);
+}
+
+Fixed	&Fixed::operator--()
+{
+	this->value--;
+	return(*this);
+}
 
 //thats called to overload the output stream operator
 //basically you tell it what to put out if it gets a certain class
 
 //arguments are a ostream object os and then the class you want to print
 //then just put the thing into the output stream object and return it
+
+
+Fixed		&Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() <= b.toFloat())
+		return (a);
+	else
+		return (b);
+}
+
+Fixed		&Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() >= b.toFloat())
+		return (a);
+	else
+		return (b);
+}

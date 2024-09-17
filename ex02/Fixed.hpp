@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:40:07 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/09/17 13:28:36 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:55:14 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,31 @@ public:
 	Fixed(const float convert);
 	Fixed &operator=(const Fixed &fix);//overloaded operators (change name later)
 	
+	float	operator+(Fixed const &fix);
+	float	operator-(Fixed const &fix);
+	float	operator*(Fixed const &fix);
+	float	operator/(Fixed const &fix);
+	
+	bool	operator<(Fixed const &fix);
+	bool	operator>(Fixed const &fix);
+	bool	operator>=(Fixed const &fix);
+	bool	operator<=(Fixed const &fix);
+	bool	operator==(Fixed const &fix);
+	bool	operator!=(Fixed const &fix);
+	
+	Fixed	operator++(int); //post increment
+	Fixed	operator--(int);
+	Fixed	&operator++(); //pre increment
+	Fixed	&operator--();
+	
+	static Fixed		&min(Fixed &a, Fixed &b);
+	static const Fixed	&min(const Fixed &a, const Fixed &b);
+	static Fixed		&max(Fixed &a, Fixed &b);
+	static const Fixed	&max(const Fixed &a, const Fixed &b);
 	int		getRawBits(void)const;
 	void	setRawBits(int const raw);
 	float toFloat( void ) const;
 	int toInt( void ) const;
-	
-	Fixed	operator+(Fixed const &fix);
-	Fixed	operator-(Fixed const &fix);
-	Fixed	operator*(Fixed const &fix);
-	Fixed	operator/(Fixed const &fix);
-	
-	Fixed	operator<(Fixed const &fix);
-	Fixed	operator>(Fixed const &fix);
-	Fixed	operator>=(Fixed const &fix);
-	Fixed	operator<=(Fixed const &fix);
-	Fixed	operator==(Fixed const &fix);
-	Fixed	operator!=(Fixed const &fix);
-	
-	Fixed	operator++(int i); //post increment
-	Fixed	operator--(int i);
-	Fixed	&operator++(); //pre increment
-	Fixed	&operator--();
-	
-	static Fixed	&min(Fixed &a, Fixed &b);
-	static Fixed	const &min(const Fixed &a, const Fixed &b);
-	static Fixed	&max(Fixed &a, Fixed &b);
-	static Fixed	const &max(const Fixed &a, const Fixed &b);
 };
 
 std::ostream	&operator<<(std::ostream &str, Fixed const &fixed_nbr);
